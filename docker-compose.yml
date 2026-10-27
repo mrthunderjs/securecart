@@ -1,0 +1,15 @@
+services:
+  securecart:
+    build: .
+    ports: ["3000:3000"]
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      SESSION_SECRET: change-this-in-production
+      DATABASE_PATH: /app/database/database.db
+    volumes:
+      - securecart-data:/app/database
+      - securecart-uploads:/app/uploads
+volumes:
+  securecart-data:
+  securecart-uploads:
